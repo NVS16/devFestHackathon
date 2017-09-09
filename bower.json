@@ -1,6 +1,6 @@
 {
   "name": "devfest",
-  "description": "Adhar API",
+  "description": "ArcGis API",
   "main": "server.js",
   "authors": [
     "Ramakrishna Pattnaik"
