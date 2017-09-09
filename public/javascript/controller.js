@@ -1,8 +1,12 @@
 $(document).ready(function () {
 
+curr();
+
+function curr(){
     $.getJSON("http://ip-api.com/json", function (pos) {
-          navigateTo(pos.lon,pos.lat);
-    });
+        navigateTo(pos.lon,pos.lat);
+  });
+}
 
 
    
@@ -33,6 +37,9 @@ $(document).ready(function () {
     });
     $("#8").click(function(){
         navigateTo(85.8391 , 20.2432); // 20.2382° N, 85.8338° E Lingaraj
+    });
+    $("#curr").click(function(){
+        curr();
     });
 
     function navigateTo(long , lat){

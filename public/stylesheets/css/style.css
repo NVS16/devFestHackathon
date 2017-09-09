@@ -33,6 +33,10 @@ h1{
     letter-spacing: 3px;
 }
 
+#curr{
+    border-radius: 50px !important;
+}
+
 table{
     border: 1px solid #ddd !important;
     box-shadow: 2px 2px 5px #888;
