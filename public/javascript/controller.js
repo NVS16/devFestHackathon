@@ -1,49 +1,66 @@
 $(document).ready(function () {
-    require([
-        "esri/Map",
-        "esri/views/SceneView",
-        "dojo/domReady!"
-    ], function (Map, SceneView) {
-        // Code to create the map and view will go here
 
-        require([
+    $.getJSON("http://ip-api.com/json", function (pos) {
+          navigateTo(pos.lon,pos.lat);
+    });
+
+    $("#goto").click(function () {
+        navigateTo(85.7758 , 20.2764);
+    });
+
+   
+    $("#1").click(function(){
+        navigateTo(85.7801 , 20.2562); //  20.2562° N, 85.7801° E
+    });
+
+     $("#2").click(function(){
+        navigateTo(85.8245 , 20.2960); // 
+    });
+
+     $("#3").click(function(){
+        navigateTo(85.8338 , 20.2382); // 20.2382° N, 85.8338° E
+    });
+
+    function navigateTo(long , lat){
+ require([
             "esri/Map",
             "esri/views/SceneView",
             "dojo/domReady!"
         ], function (Map, SceneView) {
+            // Code to create the map and view will go here
 
-            var map = new Map({
-                basemap: "hybrid",
-                ground: "world-elevation"
-            });
+            require([
+                "esri/Map",
+                "esri/views/SceneView",
+                "dojo/domReady!"
+            ], function (Map, SceneView) {
 
-            var view = new SceneView({
-                container: "viewDiv",
-                map: map,
-                scale: 10000,
-                 /*  //  center: [-101.17, 21.78]
-                   //  center : [20.95,85.09]
-                     center : [85.09,20.95],
-                     zoom : 13 */
-            });
-
-            view
-                .then(function () {
-                    // SceneView is now ready for display and can be used. Here we will
-                    // use goTo to view a particular location at a given zoom level, camera
-                    // heading and tilt.
-                    view.goTo({
-                        center: [85.7758, 20.2764],
-                        zoom: 20,
-                        heading: 30,
-                        tilt: 0
-                    })
-                })
-                .otherwise(function (err) {
-                    // A rejected view indicates a fatal error making it unable to display,
-                    // this usually means that WebGL is not available, or too old.
-                    console.error("SceneView rejected:", err);
+                var map = new Map({
+                    basemap: "hybrid",
+                    ground: "world-elevation"
                 });
+
+                var view = new SceneView({
+                    container: "viewDiv",
+                    map: map,
+                    scale: 10000,
+                });
+
+                view
+                    .then(function () {
+                        view.goTo({
+                            center: [long,lat],  // 85.7758 , 20.2764
+                            zoom: 20,
+                            heading: 30,
+                            tilt: 0
+                        })
+                    })
+                    .otherwise(function (err) {
+                        console.error("SceneView rejected:", err);
+                    });
+
+            });
         });
-    });
+    }
+    
 });
