@@ -8,9 +8,14 @@
         <!-- ***************** Meta Tags ***************** -->
         <meta charset="UTF-8">
         <meta name="author" content="The Illuminati">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
         <meta name = "description" content = "Google DevFest 09-09-2017 Bhubaneswar">
         <meta name = "keywords" content = "Aadhaar ,GDG Bhubaneswar ,Hackathon ,Aadhaar API">
+
+        <!-- **************** fOR arcgis*************** -->
+
+        <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+        <script src="https://js.arcgis.com/4.4/"></script>
         
         <!-- ***************** FAVICON **************** -->
 
@@ -26,13 +31,9 @@
 
 
     </head>
-    <body class = "ng-cloak">
+    <body>
 
-        <section ng-view>
-
-            <!-- whole display is set as the view -->                
-
-        </section>
+       <div id="viewDiv"></div>              
 
 
         <!-- ********* External JavaScript ********* -->
@@ -40,8 +41,6 @@
         
         <script src = "bower_components/jquery/dist/jquery.js" type = "text/javascript"></script>
         <script src = "bower_components/bootstrap/dist/js/bootstrap.js" type = "text/javascript"></script>
-        <script src = "bower_components/angular/angular.js"></script>
-        <script src = "bower_components/angular-route/angular-route.js"></script>
         <script src = "./javascript/controller.js" type = "text/javascript"></script>
 
 
